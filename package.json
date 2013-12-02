@@ -24,7 +24,7 @@
     "url": "https://github.com/instructure/ic-styled/issues"
   },
   "homepage": "https://github.com/instructure/ic-styled",
-  "dependencies": {
+  "devDependencies": {
     "testem": "~0.5.12"
   }
 }
