@@ -1,0 +1,30 @@
+{
+  "name": "ic-styled",
+  "version": "0.1.0",
+  "description": "automatically style components with css templates",
+  "main": "main.js",
+  "devDependencies": {
+    "testem": "~0.5.12"
+  },
+  "scripts": {
+    "test": "./node_modules/.bin/testem ci"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/instructure/ic-styled.git"
+  },
+  "keywords": [
+    "ember",
+    "component",
+    "css"
+  ],
+  "author": "Ryan Florence <rpflorence@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/instructure/ic-styled/issues"
+  },
+  "homepage": "https://github.com/instructure/ic-styled",
+  "dependencies": {
+    "testem": "~0.5.12"
+  }
+}
