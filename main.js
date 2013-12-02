@@ -15,18 +15,18 @@
 }(this, function(Ember) {
 
   /*
-   * Mixin to components to auto-inject a sister component containing the
-   * styles for this component. Given a component `x-foo` create a template at
-   * `components/x-foo-css`, treat it like a `css` file, it becomes a `<style>`
-   * tag.
+   * Auto-injects a sister component containing the styles for this component.
+   * Given a component `x-foo` create a template at `components/x-foo-css`,
+   * treat it like a `css` file, it becomes a `<style>` tag.
    */
 
-  var Styled = Ember.Mixin.create({
+  Ember.Component.reopen({
     injectStyles: function() {
       var klass = this.constructor;
-      if (klass.injectStyles === false) { return; }
-      klass.injectStyles = false;
-      var style = lookupStyleComponent(this);
+      var Style = lookupStyleComponent(this);
+      if (!Style || Style._injected) { return; }
+      Style._injected = true;
+      var style = Style.create();
       style.reopen({tagName: 'style', classNames: 'ic-styled'});
       style.appendTo(document.body);
       Ember.run.scheduleOnce('afterRender', this, function() {
@@ -45,10 +45,8 @@
   function lookupStyleComponent(component) {
     var noIdea = component.container.lookup('component-lookup:main');
     var name = getStyleComponentName(component);
-    return noIdea.lookupFactory(name, component.container).create();
+    return noIdea.lookupFactory(name, component.container);
   }
-
-  return Styled;
 
 }));
 

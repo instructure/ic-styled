@@ -3,24 +3,21 @@ var App;
 module('ic-styled-component', {
   setup: function() {
     // it is important to have more than one {{x-foo}}
-    Ember.TEMPLATES['application'] = Ember.Handlebars.compile('{{x-foo}} {{x-foo}}');
+    Ember.TEMPLATES['application'] = Ember.Handlebars.compile('{{x-foo}}');
     Ember.TEMPLATES['components/x-foo'] = Ember.Handlebars.compile('ohai');
     Ember.TEMPLATES['components/x-foo-css'] = Ember.Handlebars.compile('x-foo { font-weight: bold; }');
     App = Ember.Application.create({
       rootElement: '#qunit-fixture'
     });
-    App.XFooComponent = Ember.Component.extend(ic.Styled, { tagName: 'x-foo' });
+    App.XFooComponent = Ember.Component.extend({ tagName: 'x-foo' });
     App.setupForTesting();
     Ember.run(App, 'reset');
   },
 
   teardown: function() {
+    $('.ic-styled').remove(); // see last test
     Ember.run(App, 'destroy');
   }
-});
-
-test('presence', function() {
-  ok(ic.Styled, 'ic.Styled is defined');
 });
 
 test('prepends sister component onto <head>', function() {

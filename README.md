@@ -15,27 +15,24 @@ Installation
 Module Support
 --------------
 
+ic-styled doesn't export anything, it just adds functionality to
+`Ember.Component`. If using a module system, require it somewhere in the
+root of your application somewhere (like `application.js`).
+
 - AMD
 
-  `define(['ic-styled'], function(Styled) {});`
+  `define(['ic-styled'], function() {});`
 
 - CJS
 
-  `var Styled = require('ic-styled')`
-
-- Globals
-
-  `var Styled = ic.Styled;`
-
-  All instructure canvas stuff lives on the `ic` global.
+  `require('ic-styled')`
 
 Usage
 -----
 
 Given a component named `x-foo`, create an additional component template
-at `components/x-foo-css`, treat it like a css file, then mixin `Styled`
-to `x-foo` and `x-foo-css` will be imported into your app automatically
-on the first instance of `x-foo`.
+at `components/x-foo-css`, treat it like a css file. The css will be
+imported into your app automatically on the first instance of `x-foo`.
 
 Sounds tricky but its not; here's a sample app:
 
@@ -56,8 +53,7 @@ Sounds tricky but its not; here's a sample app:
 
 <script>
   var App = Ember.Application.create();
-  var Styled = ic.Styled;
-  App.XFooComponent = Ember.Component.extend(Styled, {
+  App.XFooComponent = Ember.Component.extend({
     tagName: 'x-foo'
   });
 </script>
