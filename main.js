@@ -36,10 +36,8 @@
   });
 
   function getStyleComponentName(component) {
-    var camelize = Ember.String.camelize;
-    var dasherize = Ember.String.dasherize;
-    var name = component.toString().split('.')[1].split(':')[0];
-    return dasherize(camelize(name)).replace('-component', '-css');
+    // do not use _debugContainerKey without permission from Stefan Penner
+    return component._debugContainerKey.split(':')[1]+'-css';
   }
 
   function lookupStyleComponent(component) {
