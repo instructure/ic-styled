@@ -36,8 +36,12 @@
   });
 
   function getStyleComponentName(component) {
-    // do not use _debugContainerKey without permission from Stefan Penner
-    return component._debugContainerKey.split(':')[1]+'-css';
+    var tagName = component.get('tagName');
+    if (tagName.indexOf('-') == -1) {
+      // do not use _debugContainerKey without permission from Stefan Penner
+      tagName = component._debugContainerKey.split(':')[1];
+    }
+    return tagName+'-css';
   }
 
   function lookupStyleComponent(component) {
