@@ -37,7 +37,7 @@
 
   function getStyleComponentName(component) {
     var tagName = component.get('tagName');
-    if (tagName.indexOf('-') == -1) {
+    if (!tagName || tagName.indexOf('-') == -1) {
       // do not use _debugContainerKey without permission from Stefan Penner
       tagName = component._debugContainerKey.split(':')[1];
     }
