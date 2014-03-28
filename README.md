@@ -1,6 +1,8 @@
 ic-styled
 =========
 
+[![Build Status](https://travis-ci.org/instructure/ic-styled.svg)](https://travis-ci.org/instructure/ic-styled)
+
 Automatically style components with css templates.
 
 Demo
