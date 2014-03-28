@@ -1,0 +1,54 @@
+<!doctype html public "enemy">
+<title>ic-styled demo</title>
+<meta charset="utf-8">
+<link rel="stylesheet" href="http://instructure.github.io/ic-ember/shared/styles.css">
+
+<header class="branding padbox">
+  <h1>ic-styled</h1>
+  <h2>Automatically style components with css templates.</h2>
+  <p>By <a target="_top" href="http://instructure.com">Instructure, Inc</a></p>
+</header>
+
+<div id="demo" class="padbox"></div>
+
+<div class="padbox">
+  <p>The Code:</p>
+  <pre>&lt;script type=&quot;text/x-handlebars&quot;&gt;<br/>  {{#x-foo}}foo{{/x-foo}}&lt;br&gt;<br/>  {{#x-foo}}foo{{/x-foo}}&lt;br&gt;<br/>  {{#x-bar}}bar{{/x-bar}}&lt;br&gt;<br/>&lt;/script&gt;<br/><br/>&lt;script type=&quot;text/x-handlebars&quot; id=&quot;components/x-foo-css&quot;&gt;<br/>x-foo {<br/>  color: red;<br/>}<br/>&lt;/script&gt;<br/><br/>&lt;script type=&quot;text/x-handlebars&quot; id=&quot;components/x-bar-css&quot;&gt;<br/>.x-bar {<br/>  color: blue;<br/>}<br/>&lt;/script&gt;<br/><br/>&lt;script&gt;<br/>App = Ember.Application.create({rootElement: '#demo'});<br/>App.XFooComponent = Ember.Component.extend({<br/>  tagName: 'x-foo'<br/>});<br/>App.XBarComponent = Ember.Component.extend({<br/>  classNames: 'x-bar'<br/>});<br/>&lt;/script&gt;<br/>
+  </pre>
+</div>
+
+<a target="_top" href="https://github.com/instructure/ic-styled"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://github-camo.global.ssl.fastly.net/a6677b08c955af8400f44c6298f40e7d19cc5b2d/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677261795f3664366436642e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png"></a>
+
+<script type="text/x-handlebars">
+  {{#x-foo}}foo{{/x-foo}}<br>
+  {{#x-foo}}foo{{/x-foo}}<br>
+  {{#x-bar}}bar{{/x-bar}}<br>
+</script>
+
+<script type="text/x-handlebars" id="components/x-foo-css">
+x-foo {
+  color: red;
+}
+</script>
+
+<script type="text/x-handlebars" id="components/x-bar-css">
+.x-bar {
+  color: blue;
+}
+</script>
+
+<script src="bower_components/jquery/jquery.js"></script>
+<script src="bower_components/handlebars/handlebars.js"></script>
+<script src="bower_components/ember/ember.js"></script>
+<script src="bower_components/ic-styled/main.js"></script>
+<script>
+App = Ember.Application.create({rootElement: '#demo'});
+App.XFooComponent = Ember.Component.extend({
+  tagName: 'x-foo'
+});
+App.XBarComponent = Ember.Component.extend({
+  classNames: 'x-bar'
+});
+</script>
+
+
