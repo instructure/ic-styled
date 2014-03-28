@@ -3,6 +3,11 @@ ic-styled
 
 Automatically style components with css templates.
 
+Demo
+----
+
+http://instructure.github.io/ic-styled
+
 Installation
 ------------
 
