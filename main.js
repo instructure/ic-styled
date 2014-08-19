@@ -27,10 +27,18 @@
       if (!Style || Style._injected) { return; }
       Style._injected = true;
       var name = getStyleComponentName(this);
-      var css = Style.create().renderToBuffer().buffer;
+      var css = getCSSFromComponent(Style);
       inject(name, css);
     }.on('willInsertElement')
   });
+
+  function getCSSFromComponent(component) {
+    var instance = component.create();
+    var buffer = new Ember.RenderBuffer();
+
+    instance.render(buffer)
+    return buffer.string();
+  }
 
   function getStyleComponentName(component) {
     var tagName = component.get('tagName');
